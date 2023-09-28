@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Tektur&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../assets/titanfall_2-15-20201320200.webp);
+    background-size: cover;
+    color: white;
+    height: 100vh;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #19191f;
+    opacity: 0.9;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: fit-content;
+    height: 100vh;
+}
+
+.reroll {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #19191f;
+    height: max-content;
+}
+
+.equipamiento {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+
+}
+
+.kits {
+    margin-top: 4rem;
+}
+
+.titan {
+    background-color: #19191f;
+}
+
+.wpn {
+    padding: 0.2rem;
+    background-color: #19191f;
+}
+
+.mod {
+    width: 70px;
+    height: 70px;
+    margin-top: 1.5rem;
+    padding: 0.2rem;
+    background-color: #19191f;
+}
+
+img {
+    border: 1px solid white;
+    border-radius: 1rem;
+}
+
+p {
+    font-size: 1.1rem;
+    font-family: 'Tektur', cursive;
+    font-weight: bold;
+    width: fit-content;
+}
+
+button {
+    padding: 1rem;
+    font-size: 1.5rem;
+}
