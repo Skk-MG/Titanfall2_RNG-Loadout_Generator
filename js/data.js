@@ -112,12 +112,12 @@ const pilotKITS = [
     {nombreKitS: "Titan Hunter", imagenKitS: "./assets/pilotkit/Pilotkit_titanhunter.webp"}
 ];
 
-const titan = [
-    {nombreTitan: "Northstar", imagenTitan: "./assets/titan/Titanicon_northstar.webp"},
-    {nombreTitan: "Ronin", imagenTitan: "./assets/titan/Titanicon_ronin.webp"},
-    {nombreTitan: "Scorch", imagenTitan: "./assets/titan/Titanicon_scorch.webp"},
-    {nombreTitan: "Ion", imagenTitan: "./assets/titan/Titanicon_ion.webp"},
-    {nombreTitan: "Legion", imagenTitan: "./assets/titan/Titanicon_legion.webp"},
-    {nombreTitan: "Tone", imagenTitan: "./assets/titan/Titanicon_tone.webp"},
-    {nombreTitan: "Monarch", imagenTitan: "./assets/titan/Titanicon_monarch.webp)"}
+const titanes = [
+    {nombreTitan: "Northstar", imagenTitan: "./assets/titan/Titanicon_northstar.webp", clase: "alfa"},
+    {nombreTitan: "Ronin", imagenTitan: "./assets/titan/Titanicon_ronin.webp", clase: "alfa"},
+    {nombreTitan: "Scorch", imagenTitan: "./assets/titan/Titanicon_scorch.webp", clase: "alfa"},
+    {nombreTitan: "Ion", imagenTitan: "./assets/titan/Titanicon_ion.webp", clase: "beta"},
+    {nombreTitan: "Legion", imagenTitan: "./assets/titan/Titanicon_legion.webp", clase: "beta"},
+    {nombreTitan: "Tone", imagenTitan: "./assets/titan/Titanicon_tone.webp", clase: "gamma"},
+    {nombreTitan: "Monarch", imagenTitan: "./assets/titan/Titanicon_monarch.webp", clase: "gamma"}
 ];

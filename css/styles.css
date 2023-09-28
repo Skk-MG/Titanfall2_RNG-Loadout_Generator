@@ -25,7 +25,7 @@ body {
     opacity: 0.9;
     border-radius: 1rem;
     padding: 1rem;
-    width: fit-content;
+    width: 40vw;
     height: 100vh;
 }
 
@@ -64,6 +64,13 @@ body {
     margin-top: 1.5rem;
     padding: 0.2rem;
     background-color: #19191f;
+}
+
+.checkboxContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 1.3rem;
 }
 
 img {

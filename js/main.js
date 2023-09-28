@@ -165,14 +165,14 @@ rerollear.addEventListener("click", () => {
     };
 
     function funcTitans(titansArray) {
-        const titanRandom = Math.floor(Math.random() * titan.length);
+        const titanRandom = Math.floor(Math.random() * titanes.length);
 
         return [titansArray[titanRandom]];
     };
 
     const kitFinal = funcKit(pilotKIT)
-    const kitSFinal = funcKit(pilotKITS)
-    const titansFinal = funcKit(titan)
+    const kitSFinal = funcKitS(pilotKITS)
+    const titansFinal = funcTitans(titanes)
 
     let html6 = document.querySelector('.extra');
     for(let kit of kitFinal) {
@@ -205,4 +205,30 @@ rerollear.addEventListener("click", () => {
     }
     }
     };
+});
+
+/*
+La idea era crear un filtro que se aplicaria al usar un checkbox
+Pero se me complica bastante con lo que se ahora
+Asique dejo los filtros hechos asi lo puedo terminar en un futuro
+*/
+
+var AR_Array = mainWPN.filter(wpn => wpn.clase === "AR");
+var SMG_Array = mainWPN.filter(wpn => wpn.clase === "SMG");
+var LMG_Array = mainWPN.filter(wpn => wpn.clase === "LMG");
+var RF_Array = mainWPN.filter(wpn => wpn.clase === "RF");
+var SG_Array = mainWPN.filter(wpn => wpn.clase === "SG");
+var GL_Array = mainWPN.filter(wpn => wpn.clase === "GL");
+var HG_Array = mainWPN.filter(wpn => wpn.clase === "HG");
+
+console.log(AR_Array,
+    SMG_Array
+    ,LMG_Array
+    ,RF_Array
+    ,SG_Array
+    ,GL_Array
+    ,HG_Array);
+
+const map1 = mainWPN.map(({nombreWPN, clase}) => {
+    console.log(`${nombreWPN} es un arma del tipo ${clase}!`);
 });
