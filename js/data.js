@@ -74,50 +74,50 @@ const titanWPN = [
 ];
 
 const wpnMODS = [
-    {imagenMODS: "../assets/wpnmod/Att_extraammo.webp"},
-    {imagenMODS: "../assets/wpnmod/Att_gunrunner.webp"},
-    {imagenMODS: "../assets/wpnmod/Att_speedloader.webp"},
-    {imagenMODS: "../assets/wpnmod/Att_gunready.webp"},
-    {imagenMODS: "../assets/wpnmod/Att_quickswap.webp"},
-    {imagenMODS: "../assets/wpnmod/Att_tactikill.webp"},
-    {imagenMODS: "../assets/wpnmod/Att_ricochet.webp"},
-    {imagenMODS: "../assets/wpnmod/Att_suppressor.webp"},
-    {imagenMODS: "../assets/wpnmod/Att_chargehack.webp"}
-];
+    {imagenMODS: "./assets/wpnmod/Att_extraammo.webp"},
+    {imagenMODS: "./assets/wpnmod/Att_gunrunner.webp"},
+    {imagenMODS: "./assets/wpnmod/Att_speedloader.webp"},
+    {imagenMODS: "./assets/wpnmod/Att_gunready.webp"},
+    {imagenMODS: "./assets/wpnmod/Att_quickswap.webp"},
+    {imagenMODS: "./assets/wpnmod/Att_tactikill.webp"},
+    {imagenMODS: "./assets/wpnmod/Att_ricochet.webp"},
+    {imagenMODS: "./assets/wpnmod/Att_suppressor.webp"},
+    {imagenMODS: "./assets/wpnmod/Att_chargehack.webp"}
+]
 
 const wpnSIGHTS = [
-    {imagenSIGHTS: "../assets/wpnsight/Att_hcog.webp", clase: "lorem"},
-    {imagenSIGHTS: "../assets/wpnsight/Att_hcogranger.webp", clase: "lorem"},
-    {imagenSIGHTS: "../assets/wpnsight/Att_threatscope.webp", clase: "lorem"},
-    {imagenSIGHTS: "../assets/wpnsight/Att_holosight.webp", clase: "lorem"},
-    {imagenSIGHTS: "../assets/wpnsight/Att_variablezoomscope.webp", clase: "lorem"},
-    {imagenSIGHTS: "../assets/wpnsight/Att_aogscope.webp", clase: "lorem"},
-    {imagenSIGHTS: "../assets/wpnsight/Att_factoryissue.webp", clase: "lorem"},
-    {imagenSIGHTS: "../assets/wpnsight/Att_factoryissue_doubletake.webp", clase: "lorem"},
-    {imagenSIGHTS: "../assets/wpnsight/Att_factoryissue_sniper.webp", clase: "lorem"}
-];
+    {imagenSIGHTS: "./assets/wpnsight/Att_hcog.webp", clase: "lorem"},
+    {imagenSIGHTS: "./assets/wpnsight/Att_hcogranger.webp", clase: "lorem"},
+    {imagenSIGHTS: "./assets/wpnsight/Att_threatscope.webp", clase: "lorem"},
+    {imagenSIGHTS: "./assets/wpnsight/Att_holosight.webp", clase: "lorem"},
+    {imagenSIGHTS: "./assets/wpnsight/Att_variablezoomscope.webp", clase: "lorem"},
+    {imagenSIGHTS: "./assets/wpnsight/Att_aogscope.webp", clase: "lorem"},
+    {imagenSIGHTS: "./assets/wpnsight/Att_factoryissue.webp", clase: "lorem"},
+    {imagenSIGHTS: "./assets/wpnsight/Att_factoryissue_doubletake.webp", clase: "lorem"},
+    {imagenSIGHTS: "./assets/wpnsight/Att_factoryissue_sniper.webp", clase: "lorem"}
+]
 
 const pilotKIT = [
-    {nombreKit: "Power Cell", imagenKit: "../assets/pilotkit/Pilotkit_powercell.webp"},
-    {nombreKit: "Fast Regen", imagenKit: "../assets/pilotkit/Pilotkit_fastregen.webp"},
-    {nombreKit: "Ordnance Expert", imagenKit: "../assets/pilotkit/Pilotkit_ordnanceexpert.webp"},
-    {nombreKit: "Phase Embark", imagenKit: "../assets/pilotkit/Pilotkit_phaseembark.webp"}
+    {nombreKit: "Power Cell", imagenKit: "./assets/pilotkit/Pilotkit_powercell.webp"},
+    {nombreKit: "Fast Regen", imagenKit: "./assets/pilotkit/Pilotkit_fastregen.webp"},
+    {nombreKit: "Ordnance Expert", imagenKit: "./assets/pilotkit/Pilotkit_ordnanceexpert.webp"},
+    {nombreKit: "Phase Embark", imagenKit: "./assets/pilotkit/Pilotkit_phaseembark.webp"}
 ];
 
 const pilotKITS = [
-    {nombreKitS: "Kill Report", imagenKitS: "../assets/pilotkit/Pilotkit_killreport.webp"},
-    {nombreKitS: "Wall Hang", imagenKitS: "../assets/pilotkit/Pilotkit_wallhang.webp"},
-    {nombreKitS: "Hover", imagenKitS: "../assets/pilotkit/Pilotkit_hover.webp"},
-    {nombreKitS: "Low Profile", imagenKitS: "../assets/pilotkit/Pilotkit_lowprofile.webp"},
-    {nombreKitS: "Titan Hunter", imagenKitS: "../assets/pilotkit/Pilotkit_titanhunter.webp"}
+    {nombreKitS: "Kill Report", imagenKitS: "./assets/pilotkit/Pilotkit_killreport.webp"},
+    {nombreKitS: "Wall Hang", imagenKitS: "./assets/pilotkit/Pilotkit_wallhang.webp"},
+    {nombreKitS: "Hover", imagenKitS: "./assets/pilotkit/Pilotkit_hover.webp"},
+    {nombreKitS: "Low Profile", imagenKitS: "./assets/pilotkit/Pilotkit_lowprofile.webp"},
+    {nombreKitS: "Titan Hunter", imagenKitS: "./assets/pilotkit/Pilotkit_titanhunter.webp"}
 ];
 
 const titan = [
-    {nombreTitan: "Northstar", imagenTitan: "../assets/titan/Titanicon_northstar.webp"},
-    {nombreTitan: "Ronin", imagenTitan: "../assets/titan/Titanicon_ronin.webp"},
-    {nombreTitan: "Scorch", imagenTitan: "../assets/titan/Titanicon_scorch.webp"},
-    {nombreTitan: "Ion", imagenTitan: "../assets/titan/Titanicon_ion.webp"},
-    {nombreTitan: "Legion", imagenTitan: "../assets/titan/Titanicon_legion.webp"},
-    {nombreTitan: "Tone", imagenTitan: "../assets/titan/Titanicon_tone.webp"},
-    {nombreTitan: "Monarch", imagenTitan: "../assets/titan/Titanicon_monarch.webp)"}
+    {nombreTitan: "Northstar", imagenTitan: "./assets/titan/Titanicon_northstar.webp"},
+    {nombreTitan: "Ronin", imagenTitan: "./assets/titan/Titanicon_ronin.webp"},
+    {nombreTitan: "Scorch", imagenTitan: "./assets/titan/Titanicon_scorch.webp"},
+    {nombreTitan: "Ion", imagenTitan: "./assets/titan/Titanicon_ion.webp"},
+    {nombreTitan: "Legion", imagenTitan: "./assets/titan/Titanicon_legion.webp"},
+    {nombreTitan: "Tone", imagenTitan: "./assets/titan/Titanicon_tone.webp"},
+    {nombreTitan: "Monarch", imagenTitan: "./assets/titan/Titanicon_monarch.webp)"}
 ];
