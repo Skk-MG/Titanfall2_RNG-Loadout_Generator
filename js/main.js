@@ -1,7 +1,9 @@
-// const rerollear = document.querySelector("#botonReroll")
+const rerollear = document.querySelector("#botonReroll")
 
-// rerollear.addEventListener("click", () => {
+rerollear.addEventListener("click", () => {
 
+    // Habilidad primaria 
+        
     function funcSkill(skillArray) {
         const skillRandom = Math.floor(Math.random() * pilotSkill.length);
         return [skillArray[skillRandom]];
@@ -18,6 +20,7 @@
         `
     };
 
+    // Habilidad secundaria
 
     function funcBoost(boostArray) {
         const boostRandom = Math.floor(Math.random() * pilotBoost.length);
@@ -35,6 +38,7 @@
         `
     };
 
+    // Arrojables
 
     function funcNades(nadesArray) {
         const nadesRandom = Math.floor(Math.random() * pilotNades.length);
@@ -52,6 +56,7 @@
         `
     };
 
+    // Armas primarias, mods y miras
 
     function funcWpns(primWpnArray) {
         const wpnsRandom = Math.floor(Math.random() * mainWPN.length);
@@ -98,6 +103,7 @@
     }
     };
 
+    // Armas secundarias
 
     function funcSideWpns(SideWpnArray) {
         const sideWpnsRandom = Math.floor(Math.random() * sideWPN.length);
@@ -124,6 +130,7 @@
         `
     };
 
+        // Armas anti-titan
 
     function funcTitanWpns(TitanWpnArray) {
         const titanWpnsRandom = Math.floor(Math.random() * titanWPN.length);
@@ -150,6 +157,7 @@
         `
     };
 
+    // Habilidades pasivas y titan
 
     function funcKit(kitArray) {
         const kitRandom = Math.floor(Math.random() * pilotKIT.length);
@@ -205,4 +213,6 @@
     }
     };
 
-// });
+
+
+});
