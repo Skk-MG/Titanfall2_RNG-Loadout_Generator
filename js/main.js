@@ -2,7 +2,7 @@ const rerollear = document.querySelector("#botonReroll")
 
 rerollear.addEventListener("click", () => {
 
-    // Habilidad primaria 
+    // Habilidad primaria - Habilidad secundaria - Arrojadizas
         
     function funcSkill(skillArray) {
         const skillRandom = Math.floor(Math.random() * pilotSkill.length);
@@ -10,35 +10,11 @@ rerollear.addEventListener("click", () => {
     };
     const skillFinal = funcSkill(pilotSkill);
 
-    let html = document.querySelector('.equipamiento');
-    for(let skill of skillFinal){
-        html.innerHTML += `
-        <li>
-            <p>${skill.nombreSkill}</p>
-            <img src="${skill.imagenSkill}" alt="">
-        </li>
-        `
-    };
-
-    // Habilidad secundaria
-
     function funcBoost(boostArray) {
         const boostRandom = Math.floor(Math.random() * pilotBoost.length);
         return [boostArray[boostRandom]];
     };
     const boostFinal = funcBoost(pilotBoost);
-
-    let html1 = document.querySelector('.equipamiento');
-    for(let boost of boostFinal){
-        html1.innerHTML += `
-        <li>
-            <p>${boost.nombreBoost}</p>
-            <img src="${boost.imagenBoost}" alt="">
-        </li>
-        `
-    };
-
-    // Arrojables
 
     function funcNades(nadesArray) {
         const nadesRandom = Math.floor(Math.random() * pilotNades.length);
@@ -46,15 +22,29 @@ rerollear.addEventListener("click", () => {
     };
     const nadesFinal = funcNades(pilotNades);
 
-    let html2 = document.querySelector('.equipamiento');
+    let html = document.querySelector('.equipamiento');
+    for(let skill of skillFinal){
+    for(let boost of boostFinal){
     for(let nade of nadesFinal){
-        html2.innerHTML += `
+
+        html.innerHTML = `
+        <li>
+            <p>${skill.nombreSkill}</p>
+            <img src="${skill.imagenSkill}" alt="">
+        </li>
+        <li>
+            <p>${boost.nombreBoost}</p>
+            <img src="${boost.imagenBoost}" alt="">
+        </li>
         <li>
             <p>${nade.nombreNades}</p>
             <img src="${nade.imagenNades}" alt="">
         </li>
         `
+    }
+    }
     };
+
 
     // Armas primarias, mods y miras
 
@@ -67,7 +57,7 @@ rerollear.addEventListener("click", () => {
         const modsRandomA = Math.floor(Math.random() * wpnMODS.length);
         const modsRandomB = Math.floor(Math.random() * wpnMODS.length);
         while (modsRandomA === modsRandomB) {
-            Math.floor(Math.random() * wpnMODS.length);
+            modsRandomB = Math.floor(Math.random() * wpnMODS.length);
         }
 
         return [modsArray[modsRandomA], modsArray[modsRandomB]];
@@ -86,7 +76,7 @@ rerollear.addEventListener("click", () => {
     for(let wpn of wpnsFinal) {
 
     for(let sight of sightsFinal) {
-        html3.innerHTML += `
+        html3.innerHTML = `
         <li>
             <p>${wpn.nombreWPN}</p>
             <img src="${wpn.imagenWPN}" alt="" class="wpn">
@@ -103,6 +93,7 @@ rerollear.addEventListener("click", () => {
     }
     };
 
+
     // Armas secundarias
 
     function funcSideWpns(SideWpnArray) {
@@ -116,7 +107,7 @@ rerollear.addEventListener("click", () => {
 
         let sideReroll = funcMods(wpnMODS);
 
-        html4.innerHTML += `
+        html4.innerHTML = `
         <li>
             <p>${sideWpn.nombreSIDE}</p>
             <img src="${sideWpn.imagenSIDE}" alt="" class="wpn">
@@ -130,7 +121,8 @@ rerollear.addEventListener("click", () => {
         `
     };
 
-        // Armas anti-titan
+
+    // Armas anti-titan
 
     function funcTitanWpns(TitanWpnArray) {
         const titanWpnsRandom = Math.floor(Math.random() * titanWPN.length);
@@ -143,7 +135,7 @@ rerollear.addEventListener("click", () => {
 
         let titanReroll = funcMods(wpnMODS);
 
-        html5.innerHTML += `
+        html5.innerHTML = `
         <li>
             <p>${titanWpn.nombreTWPN}</p>
             <img src="${titanWpn.imagenTWPN}" alt="" class="wpn">
@@ -156,6 +148,7 @@ rerollear.addEventListener("click", () => {
         <img class="mod" src="./assets/wpnmod/Att_proscreen.webp" alt="">
         `
     };
+
 
     // Habilidades pasivas y titan
 
@@ -188,7 +181,7 @@ rerollear.addEventListener("click", () => {
 
     for (let titan of titansFinal) {
 
-        html6.innerHTML += `
+        html6.innerHTML = `
         <li class="kits">
             <p>${kit.nombreKit}</p>
             <img src="${kit.imagenKit}" alt="">
@@ -200,7 +193,7 @@ rerollear.addEventListener("click", () => {
         </li>
 
         <li class="kits"> 
-            <p>Lorem, ipsum dolor.</p>
+            <p>Random Execution</p>
             <img src="./assets/pilotkit/unknown.jpg" alt="">
         </li>
 
@@ -212,7 +205,4 @@ rerollear.addEventListener("click", () => {
     }
     }
     };
-
-
-
 });
