@@ -7,14 +7,89 @@ document.addEventListener('DOMContentLoaded', () => {
         lastRoll = [];
     } else {
         const arrayRecuperado = JSON.parse(localStorage.getItem("lastRollSync"))
-
-        for (array of arrayRecuperado) {
-            console.log(array)
-        }
-        // console.log(arrayObjetos)
         let ultimoRoll = document.querySelector('.contenedor');
 
+        for(let item in arrayRecuperado) {
+        ultimoRoll.innerHTML = `
+            <div class="equipamiento">
+                <li>
+                    <p>${item.nombreSkill}</p>
+                    <img src="${item.imagenSkill}" alt="">
+                </li>
+                <li>
+                    <p>${item.nombreBoost}</p>
+                    <img src="${item.nombreBoost}" alt="">
+                </li>
+                <li>
+                    <p>${item.nombreSkill}</p>
+                    <img src="${item.nombreNades}" alt="">
+                </li>
+            </div>
 
+            <div class="equipamiento mainwpn">
+                <li>
+                    <p>${item.nombreWPN}</p>
+                    <img src="${item.imagenWPN}" alt="" class="wpn">
+                </li>
+        
+                <img class="mod" src="${item[6].imagenMODS[0]}" alt="">
+        
+                <img class="mod" src="${item[6].imagenMODS[1]}" alt="">
+        
+                <img class="mod" src="${item.imagenSIGHTS}" alt="">    
+
+                <img class="mod" src="./assets/wpnmod/Att_proscreen.webp" alt="">
+            </div>
+
+            <div class="equipamiento sidewpn">
+                <li>
+                    <p>${item.nombreSIDE}</p>
+                    <img src="${item.imagenSIDE}" alt="" class="wpn">
+                </li>
+        
+                <img class="mod" src="${item[0].imagenMODS[0]}" alt="">
+        
+                <img class="mod" src="${item[0].imagenMODS[1]}" alt="">    
+
+                <img class="mod" src="./assets/wpnmod/Att_proscreen.webp" alt="">
+            </div>
+
+            <div class="equipamiento titanwpn">
+                <li>
+                    <p>${item.nombreTWPN}</p>
+                    <img src="${item.imagenTWPN}" alt="" class="wpn">
+                </li>
+        
+                <img class="mod" src="${item[1].imagenMODS[0]}" alt="">
+        
+                <img class="mod" src="${item[1].imagenMODS[1]}" alt="">    
+
+                <img class="mod" src="./assets/wpnmod/Att_proscreen.webp" alt="">
+            </div>
+
+            <div class="equipamiento extra">
+                <li class="kits">
+                    <p>${item.nombreKit}</p>
+                    <img src="${item.imagenKit}" alt="">
+                </li>
+        
+                <li class="kits">
+                    <p>${item.nombreKitS}</p>
+                    <img src="${item.imagenKitS}" alt="">
+                </li>
+        
+                <li class="kits"> 
+                    <p>Random Execution</p>
+                    <img src="./assets/pilotkit/unknown.jpg" alt="">
+                </li>
+        
+                <li>
+                    <p>${item.nombreTitan}</p>
+                    <img class="titan" src="${item.imagenTitan}" alt="">
+                </li> 
+            </div>
+            `
+        };
 
     };
 
