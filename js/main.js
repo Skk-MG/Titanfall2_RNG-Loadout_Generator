@@ -2,6 +2,24 @@ let lastRoll = [];
 
 const rerollear = document.querySelector("#botonReroll");
 
+document.addEventListener('DOMContentLoaded', () => {
+    if (JSON.parse(localStorage.getItem("lastRollSync")) == null) {
+        lastRoll = [];
+    } else {
+        const arrayRecuperado = JSON.parse(localStorage.getItem("lastRollSync"))
+
+        for (array of arrayRecuperado) {
+            console.log(array)
+        }
+        // console.log(arrayObjetos)
+        let ultimoRoll = document.querySelector('.contenedor');
+
+
+
+    };
+
+});
+
 rerollear.addEventListener("click", () => {
 
     // Habilidad primaria - Habilidad secundaria - Arrojadizas
@@ -48,10 +66,6 @@ rerollear.addEventListener("click", () => {
     }
     };
 
-    localStorage.setItem('Skill', JSON.stringify(skillFinal));
-    localStorage.setItem('Boost', JSON.stringify(boostFinal));
-    localStorage.setItem('Throw', JSON.stringify(nadesFinal));
-
 
     // Armas primarias, mods y miras
 
@@ -61,9 +75,9 @@ rerollear.addEventListener("click", () => {
     };
 
     function funcMods(modsArray) {
-        const modsRandomA = Math.floor(Math.random() * wpnMODS.length);
-        const modsRandomB = Math.floor(Math.random() * wpnMODS.length);
-        while (modsRandomA === modsRandomB) {
+        let modsRandomA = Math.floor(Math.random() * wpnMODS.length);
+        let modsRandomB = Math.floor(Math.random() * wpnMODS.length);
+        if (modsRandomA === modsRandomB) {
             modsRandomB = Math.floor(Math.random() * wpnMODS.length);
         }
 
@@ -100,10 +114,6 @@ rerollear.addEventListener("click", () => {
     }
     };
 
-    localStorage.setItem('pWpn', JSON.stringify(wpnsFinal));
-    localStorage.setItem('pMods', JSON.stringify(modsFinal));
-    localStorage.setItem('Sights', JSON.stringify(sightsFinal));
-
 
     // Armas secundarias
 
@@ -118,7 +128,7 @@ rerollear.addEventListener("click", () => {
     for(let sideWpn of sideWpnsFinal) {
 
         let sideReroll = funcMods(wpnMODS);
-        localStorage.setItem('sMods', JSON.stringify(sideReroll));
+        lastRoll.push(sideReroll);
 
         html4.innerHTML = `
         <li>
@@ -134,8 +144,6 @@ rerollear.addEventListener("click", () => {
         `
     };
 
-    localStorage.setItem('sWpn', JSON.stringify(sideWpnsFinal));
-
 
     // Armas anti-titan
 
@@ -150,7 +158,7 @@ rerollear.addEventListener("click", () => {
     for(let titanWpn of sideTitanFinal) {
 
         let titanReroll = funcMods(wpnMODS);
-        localStorage.setItem('tMods', JSON.stringify(titanReroll));
+        lastRoll.push(titanReroll);
 
         html5.innerHTML = `
         <li>
@@ -165,8 +173,6 @@ rerollear.addEventListener("click", () => {
         <img class="mod" src="./assets/wpnmod/Att_proscreen.webp" alt="">
         `
     };
-
-    localStorage.setItem('sTWpn', JSON.stringify(sideTitanFinal));
 
 
     // Habilidades pasivas y titan
@@ -224,12 +230,17 @@ rerollear.addEventListener("click", () => {
     }
     }
     };
+    
+    lastRoll.push(skillFinal, boostFinal, nadesFinal, wpnsFinal, modsFinal, sightsFinal, sideWpnsFinal, sideTitanFinal, kitFinal, kitSFinal, titansFinal);
 
-    localStorage.setItem('pilotKit', JSON.stringify(kitFinal));
-    localStorage.setItem('pilotKitS', JSON.stringify(kitSFinal));
-    localStorage.setItem('Titan', JSON.stringify(titansFinal));
+    if (lastRoll.length > 13) {
+        lastRoll = [];
+    } else {
+        localStorage.setItem("lastRollSync", JSON.stringify(lastRoll))
+    }
 
 });
+
 
 /*
 var AR_Array = mainWPN.filter(wpn => wpn.clase === "AR");
@@ -252,10 +263,3 @@ const map1 = mainWPN.map(({nombreWPN, clase}) => {
     console.log(`${nombreWPN} es un arma del tipo ${clase}!`);
 });
 */
-
-for (let i = 0; i < localStorage.length; i++) {
-    let claveLocalStorage = localStorage.key(i);
-    lastRoll.push(JSON.parse(localStorage.getItem(claveLocalStorage)));
-};
-
-console.log(lastRoll)
