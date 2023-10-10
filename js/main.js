@@ -322,6 +322,14 @@ rerollear.addEventListener("click", () => {
 });
 
 
+// Limpia el localStorage
+
+const limpiarStorage = document.querySelector('#woosh');
+
+limpiarStorage.addEventListener('click', () => {
+    localStorage.clear();
+});
+
 /*
 var AR_Array = mainWPN.filter(wpn => wpn.clase === "AR");
 var SMG_Array = mainWPN.filter(wpn => wpn.clase === "SMG");

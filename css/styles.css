@@ -93,3 +93,12 @@ button {
 span { 
     color: red;
 }
+
+#woosh {
+    color: green;
+    cursor: pointer;
+}
+
+#woosh:hover {
+    color: red;
+}
