@@ -1,4 +1,6 @@
-const rerollear = document.querySelector("#botonReroll")
+let lastRoll = [];
+
+const rerollear = document.querySelector("#botonReroll");
 
 rerollear.addEventListener("click", () => {
 
@@ -8,18 +10,19 @@ rerollear.addEventListener("click", () => {
         const skillRandom = Math.floor(Math.random() * pilotSkill.length);
         return [skillArray[skillRandom]];
     };
-    const skillFinal = funcSkill(pilotSkill);
-
+    
     function funcBoost(boostArray) {
         const boostRandom = Math.floor(Math.random() * pilotBoost.length);
         return [boostArray[boostRandom]];
     };
-    const boostFinal = funcBoost(pilotBoost);
-
+    
     function funcNades(nadesArray) {
         const nadesRandom = Math.floor(Math.random() * pilotNades.length);
         return [nadesArray[nadesRandom]];
     };
+    
+    const skillFinal = funcSkill(pilotSkill);
+    const boostFinal = funcBoost(pilotBoost);
     const nadesFinal = funcNades(pilotNades);
 
     let html = document.querySelector('.equipamiento');
@@ -44,6 +47,10 @@ rerollear.addEventListener("click", () => {
     }
     }
     };
+
+    localStorage.setItem('Skill', JSON.stringify(skillFinal));
+    localStorage.setItem('Boost', JSON.stringify(boostFinal));
+    localStorage.setItem('Throw', JSON.stringify(nadesFinal));
 
 
     // Armas primarias, mods y miras
@@ -93,6 +100,10 @@ rerollear.addEventListener("click", () => {
     }
     };
 
+    localStorage.setItem('pWpn', JSON.stringify(wpnsFinal));
+    localStorage.setItem('pMods', JSON.stringify(modsFinal));
+    localStorage.setItem('Sights', JSON.stringify(sightsFinal));
+
 
     // Armas secundarias
 
@@ -100,12 +111,14 @@ rerollear.addEventListener("click", () => {
         const sideWpnsRandom = Math.floor(Math.random() * sideWPN.length);
         return [SideWpnArray[sideWpnsRandom]];
     };
+
     const sideWpnsFinal = funcSideWpns(sideWPN);
 
     let html4 = document.querySelector('.sidewpn');
     for(let sideWpn of sideWpnsFinal) {
 
         let sideReroll = funcMods(wpnMODS);
+        localStorage.setItem('sMods', JSON.stringify(sideReroll));
 
         html4.innerHTML = `
         <li>
@@ -121,6 +134,8 @@ rerollear.addEventListener("click", () => {
         `
     };
 
+    localStorage.setItem('sWpn', JSON.stringify(sideWpnsFinal));
+
 
     // Armas anti-titan
 
@@ -128,12 +143,14 @@ rerollear.addEventListener("click", () => {
         const titanWpnsRandom = Math.floor(Math.random() * titanWPN.length);
         return [TitanWpnArray[titanWpnsRandom]];
     };
+
     const sideTitanFinal = funcTitanWpns(titanWPN);
 
     let html5 = document.querySelector('.titanwpn');
     for(let titanWpn of sideTitanFinal) {
 
         let titanReroll = funcMods(wpnMODS);
+        localStorage.setItem('tMods', JSON.stringify(titanReroll));
 
         html5.innerHTML = `
         <li>
@@ -148,6 +165,8 @@ rerollear.addEventListener("click", () => {
         <img class="mod" src="./assets/wpnmod/Att_proscreen.webp" alt="">
         `
     };
+
+    localStorage.setItem('sTWpn', JSON.stringify(sideTitanFinal));
 
 
     // Habilidades pasivas y titan
@@ -205,14 +224,14 @@ rerollear.addEventListener("click", () => {
     }
     }
     };
+
+    localStorage.setItem('pilotKit', JSON.stringify(kitFinal));
+    localStorage.setItem('pilotKitS', JSON.stringify(kitSFinal));
+    localStorage.setItem('Titan', JSON.stringify(titansFinal));
+
 });
 
 /*
-La idea era crear un filtro que se aplicaria al usar un checkbox
-Pero se me complica bastante con lo que se ahora
-Asique dejo los filtros hechos asi lo puedo terminar en un futuro
-*/
-
 var AR_Array = mainWPN.filter(wpn => wpn.clase === "AR");
 var SMG_Array = mainWPN.filter(wpn => wpn.clase === "SMG");
 var LMG_Array = mainWPN.filter(wpn => wpn.clase === "LMG");
@@ -232,3 +251,11 @@ console.log(AR_Array,
 const map1 = mainWPN.map(({nombreWPN, clase}) => {
     console.log(`${nombreWPN} es un arma del tipo ${clase}!`);
 });
+*/
+
+for (let i = 0; i < localStorage.length; i++) {
+    let claveLocalStorage = localStorage.key(i);
+    lastRoll.push(JSON.parse(localStorage.getItem(claveLocalStorage)));
+};
+
+console.log(lastRoll)
