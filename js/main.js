@@ -2,80 +2,83 @@ let lastRoll = [];
 
 const rerollear = document.querySelector("#botonReroll");
 
+// Carga los ultimos datos previamente guardados (si es que existen)
+
 document.addEventListener('DOMContentLoaded', () => {
     if (JSON.parse(localStorage.getItem("lastRollSync")) == null) {
         lastRoll = [];
     } else {
         const arrayRecuperado = JSON.parse(localStorage.getItem("lastRollSync"))
+        // console.log(arrayRecuperado)
         let ultimoRoll = document.querySelector('.contenedor');
 
-        for(let item in arrayRecuperado) {
+        for(let item of arrayRecuperado) {
         ultimoRoll.innerHTML = `
             <div class="equipamiento">
                 <li>
-                    <p>${item.nombreSkill}</p>
-                    <img src="${item.imagenSkill}" alt="">
+                    <p>${arrayRecuperado[4].nombreSkill}</p>
+                    <img src="${arrayRecuperado[4].imagenSkill}" alt="">
                 </li>
                 <li>
-                    <p>${item.nombreBoost}</p>
-                    <img src="${item.nombreBoost}" alt="">
+                    <p>${arrayRecuperado[5].nombreBoost}</p>
+                    <img src="${arrayRecuperado[5].imagenBoost}" alt="">
                 </li>
                 <li>
-                    <p>${item.nombreSkill}</p>
-                    <img src="${item.nombreNades}" alt="">
+                    <p>${arrayRecuperado[6].nombreNades}</p>
+                    <img src="${arrayRecuperado[6].imagenNades}" alt="">
                 </li>
             </div>
 
             <div class="equipamiento mainwpn">
                 <li>
-                    <p>${item.nombreWPN}</p>
-                    <img src="${item.imagenWPN}" alt="" class="wpn">
+                    <p>${arrayRecuperado[7].nombreWPN}</p>
+                    <img src="${arrayRecuperado[7].imagenWPN}" alt="" class="wpn">
                 </li>
         
-                <img class="mod" src="${item[6].imagenMODS[0]}" alt="">
+                <img class="mod" src="${arrayRecuperado[8].imagenMODS}" alt="">
         
-                <img class="mod" src="${item[6].imagenMODS[1]}" alt="">
+                <img class="mod" src="${arrayRecuperado[9].imagenMODS}" alt="">
         
-                <img class="mod" src="${item.imagenSIGHTS}" alt="">    
+                <img class="mod" src="${arrayRecuperado[10].imagenSIGHTS}" alt="">    
 
                 <img class="mod" src="./assets/wpnmod/Att_proscreen.webp" alt="">
             </div>
 
             <div class="equipamiento sidewpn">
                 <li>
-                    <p>${item.nombreSIDE}</p>
-                    <img src="${item.imagenSIDE}" alt="" class="wpn">
+                    <p>${arrayRecuperado[11].nombreSIDE}</p>
+                    <img src="${arrayRecuperado[11].imagenSIDE}" alt="" class="wpn">
                 </li>
         
-                <img class="mod" src="${item[0].imagenMODS[0]}" alt="">
+                <img class="mod" src="${arrayRecuperado[0].imagenMODS}" alt="">
         
-                <img class="mod" src="${item[0].imagenMODS[1]}" alt="">    
+                <img class="mod" src="${arrayRecuperado[1].imagenMODS}" alt="">    
 
                 <img class="mod" src="./assets/wpnmod/Att_proscreen.webp" alt="">
             </div>
 
             <div class="equipamiento titanwpn">
                 <li>
-                    <p>${item.nombreTWPN}</p>
-                    <img src="${item.imagenTWPN}" alt="" class="wpn">
+                    <p>${arrayRecuperado[12].nombreTWPN}</p>
+                    <img src="${arrayRecuperado[12].imagenTWPN}" alt="" class="wpn">
                 </li>
         
-                <img class="mod" src="${item[1].imagenMODS[0]}" alt="">
+                <img class="mod" src="${arrayRecuperado[2].imagenMODS}" alt="">
         
-                <img class="mod" src="${item[1].imagenMODS[1]}" alt="">    
+                <img class="mod" src="${arrayRecuperado[3].imagenMODS}" alt="">    
 
                 <img class="mod" src="./assets/wpnmod/Att_proscreen.webp" alt="">
             </div>
 
             <div class="equipamiento extra">
                 <li class="kits">
-                    <p>${item.nombreKit}</p>
-                    <img src="${item.imagenKit}" alt="">
+                    <p>${arrayRecuperado[13].nombreKit}</p>
+                    <img src="${arrayRecuperado[13].imagenKit}" alt="">
                 </li>
         
                 <li class="kits">
-                    <p>${item.nombreKitS}</p>
-                    <img src="${item.imagenKitS}" alt="">
+                    <p>${arrayRecuperado[14].nombreKitS}</p>
+                    <img src="${arrayRecuperado[14].imagenKitS}" alt="">
                 </li>
         
                 <li class="kits"> 
@@ -84,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 </li>
         
                 <li>
-                    <p>${item.nombreTitan}</p>
-                    <img class="titan" src="${item.imagenTitan}" alt="">
+                    <p>${arrayRecuperado[15].nombreTitan}</p>
+                    <img class="titan" src="${arrayRecuperado[15].imagenTitan}" alt="">
                 </li> 
             </div>
             `
@@ -203,7 +206,7 @@ rerollear.addEventListener("click", () => {
     for(let sideWpn of sideWpnsFinal) {
 
         let sideReroll = funcMods(wpnMODS);
-        lastRoll.push(sideReroll);
+        lastRoll.push(...sideReroll);
 
         html4.innerHTML = `
         <li>
@@ -233,7 +236,7 @@ rerollear.addEventListener("click", () => {
     for(let titanWpn of sideTitanFinal) {
 
         let titanReroll = funcMods(wpnMODS);
-        lastRoll.push(titanReroll);
+        lastRoll.push(...titanReroll);
 
         html5.innerHTML = `
         <li>
@@ -306,13 +309,15 @@ rerollear.addEventListener("click", () => {
     }
     };
     
-    lastRoll.push(skillFinal, boostFinal, nadesFinal, wpnsFinal, modsFinal, sightsFinal, sideWpnsFinal, sideTitanFinal, kitFinal, kitSFinal, titansFinal);
+    // Manda todos los datos al local storage y se asegura que no se acumulen 
 
-    if (lastRoll.length > 13) {
+    lastRoll.push(...skillFinal, ...boostFinal, ...nadesFinal, ...wpnsFinal, ...modsFinal, ...sightsFinal, ...sideWpnsFinal, ...sideTitanFinal, ...kitFinal, ...kitSFinal, ...titansFinal);
+
+    if (lastRoll.length > 17) {
         lastRoll = [];
     } else {
-        localStorage.setItem("lastRollSync", JSON.stringify(lastRoll))
-    }
+        localStorage.setItem("lastRollSync", JSON.stringify(lastRoll));
+    };
 
 });
 
