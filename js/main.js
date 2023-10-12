@@ -1,6 +1,8 @@
+
 let lastRoll = [];
 
 const rerollear = document.querySelector("#botonReroll");
+
 
 // Carga los ultimos datos previamente guardados (si es que existen)
 
@@ -155,6 +157,7 @@ rerollear.addEventListener("click", () => {
     function funcMods(modsArray) {
         let modsRandomA = Math.floor(Math.random() * wpnMODS.length);
         let modsRandomB = Math.floor(Math.random() * wpnMODS.length);
+
         if (modsRandomA === modsRandomB) {
             modsRandomB = Math.floor(Math.random() * wpnMODS.length);
         }
@@ -308,6 +311,7 @@ rerollear.addEventListener("click", () => {
     }
     }
     };
+
     
     // Manda todos los datos al local storage y se asegura que no se acumulen 
 
@@ -331,6 +335,8 @@ limpiarStorage.addEventListener('click', () => {
 });
 
 /*
+- Implementar estos filtros cuando tenga tiempo (o ganas)
+
 var AR_Array = mainWPN.filter(wpn => wpn.clase === "AR");
 var SMG_Array = mainWPN.filter(wpn => wpn.clase === "SMG");
 var LMG_Array = mainWPN.filter(wpn => wpn.clase === "LMG");

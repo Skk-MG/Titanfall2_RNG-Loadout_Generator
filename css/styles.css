@@ -101,4 +101,5 @@ span {
 
 #woosh:hover {
     color: red;
+    list-style-type: none;
 }
